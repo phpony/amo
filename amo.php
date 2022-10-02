@@ -180,11 +180,11 @@ class amoSend
                 "contacts" => array($contact)
             ),
             "metadata" => array(
-                "ip" => $_SERVER['REMOTE_ADDR'],
+                "ip" => !empty($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1',
                 "form_sent_at" => time(),
                 "form_id" => $formId,
                 "form_name" => !empty($formData['type']) ? $formData['type'] : 'Заявка с сайта',                
-                "form_page" => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"
+                "form_page" => !empty($_SERVER['HTTP_HOST']) ? "https://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}" : $redirect
             )
         ));
         if(!empty($_SERVER['HTTP_REFERER'])) {
