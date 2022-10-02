@@ -47,6 +47,7 @@
 В общем виде отправка лида выглядит так:
 
 ```
+require_once "/path/to/amo.php";
 $amo = new amoSend(папка_для_токенов);   
 $amo->sendLead(array(
   'type' => 'Тестовая заявка с сайта',
