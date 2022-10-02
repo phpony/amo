@@ -183,7 +183,7 @@ class amoSend
                 "ip" => $_SERVER['REMOTE_ADDR'],
                 "form_sent_at" => time(),
                 "form_id" => $formId,
-                "form_name" => $formData['type'],                
+                "form_name" => !empty($formData['type']) ? $formData['type'] : 'Заявка с сайта',                
                 "form_page" => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"
             )
         ));
